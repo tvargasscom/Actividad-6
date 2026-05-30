@@ -22,19 +22,26 @@ def mostrar_tareas(lista_tareas):
     for i in range(len(lista_tareas)):
         tarea = lista_tareas[i]
         
-        # acá veo si le coloco la X o la dejo vacia dependiendo de si la tarea esta hecha o no basandome en el booleano que retorna de la clave del diccionario
+        """ 
+        acá veo si le coloco la X o la dejo vacia dependiendo de si la tarea esta hecha o no
+        basandome en el booleano que retorna al comparar la clave del diccionario con True
+        """
         if tarea["completada"] == True:
             estado = "(X)"
         else:
             estado = "( )"
         
-        # acá se muestran los números de lista empezando desde 0, lo dejo así para que sea más fácil manejar los elementos de la lista.
+        """ 
+        acá se muestran los números de lista empezando desde 0,
+        lo dejo así para que sea más fácil manejar los elementos de la lista.
+        """
         print(f"{i}. {estado} {tarea['descripcion']}")
         
 
 def agregar_tarea(lista_tareas, descripcion):
     """
-    Esta función agrega una tarea al final de la lista, toma como parámetros la lista de tareas que es la lista donde se va a guardar y la descripción que es el texto que dice lo que hay que hacer y retorna la lista actualizada.
+    Esta función agrega una tarea al final de la lista, toma como parámetros la lista de tareas que es la lista
+    donde se va a guardar y la descripción que es el texto que dice lo que hay que hacer y retorna la lista actualizada.
     
     """
     nueva = {"descripcion": descripcion, "completada": False}
@@ -44,7 +51,8 @@ def agregar_tarea(lista_tareas, descripcion):
 
 def marcar_completada(lista_tareas, posicion):
     """
-    Esta función busca la tarea por su número y le cambia el estado a completada, toma como parametros lista_tareas y el número de la posición del elemento de la lista que queremos modificar, no retorna nada.
+    Esta función busca la tarea por su número y le cambia el estado a completada, toma como parametros lista_tareas
+    y el número de la posición del elemento de la lista que queremos modificar, no retorna nada.
 
     """
     #acá usamos un try except por si el usuario llega a poner un número que no es válido por si se pasa del tamaño de la lista
@@ -57,7 +65,8 @@ def marcar_completada(lista_tareas, posicion):
         
 def contar_tareas_pendientes(lista_tareas, indice=0):
     """
-    Esta función cuenta recursivamente cuántas tareas faltan por hacer, toma como parámetros lista_tareas que es la lista con los diccionarios y también toma el índice cuyo valor por defecto lo puse en 0 y retorna el número de tareas pendientes.
+    Esta función cuenta recursivamente cuántas tareas faltan por hacer, toma como parámetros lista_tareas que es la lista
+    con los diccionarios y también toma el índice cuyo valor por defecto lo puse en 0 y retorna el número de tareas pendientes.
     
     """
     # Caso Base: si el índice ya llegó al final de la lista, se corta recursividad la y se devuelve 0
@@ -83,9 +92,9 @@ if __name__ == "__main__":
     while True:
         print("\n  Menú  ")
         print("1) Ver tareas")
-        print("2) Añadir una tarea")
-        print("3) Marcar una tarea completada")
-        print("4) Ver tareas pendientes")
+        print("2) Agregar tarea")
+        print("3) Marcar tarea como completada")
+        print("4) Mostrar total de tareas pendientes")
         print("5) Salir")
         
         opcion = input("Elija una opción (1-5): ")
